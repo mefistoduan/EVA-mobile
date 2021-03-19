@@ -367,18 +367,22 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@mixin cube {
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  margin: 0 auto;
+}
+
   #skin-blur-violate {
     position: relative;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100%;
+    @include cube;
     height: 100%;
-    overflow: hidden;
-    display: block;
-    margin: 0 auto;
     background: #3B3B3B;
     background: url("../static/images/login/bg.png") top center no-repeat;
     background-size: 100% 100%;
@@ -390,29 +394,38 @@
     display: block;
     margin: 0 auto;
     overflow-y: scroll;
-  }
-
-  #login .box {
-    margin: 0 auto;
-    position: inherit;
-    margin-top: 0px;
-    border-radius: 9px;
-    padding: 0px 20px;
-  }
-
-  h1 {
-    color: #FFA200;
-    font-size: 30px;
-  }
-
-  header p {
-    font-size: 14px;
-    color: #7B7B7B;
-  }
-
-  #login header {
-    text-align: center;
-    margin-top: 5%;
+    .box {
+      margin: 0 auto;
+      position: inherit;
+      margin-top: 0px;
+      border-radius: 9px;
+      padding: 0px 20px;
+    }
+    h1 {
+      color: #FFA200;
+      font-size: 30px;
+    }
+    header {
+      text-align: center;
+      margin-top: 5%;
+      p {
+        font-size: 14px;
+        color: #7B7B7B;
+      }
+    }
+    .login_valid {
+      width: 65%;
+      float: left;
+    }
+    .login-control {
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      background: rgba(255, 255, 255, 0.4);
+      margin-bottom: 3px;
+      text-indent: 10px;
+      border: none;
+    }
   }
 
   #box-login h2 {
@@ -503,20 +516,7 @@
     padding: 0;
   }
 
-  header p {
-    margin-top: 10px;
-  }
 
-  #login .login-control {
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    background: rgba(255, 255, 255, 0.4);
-    margin-bottom: 3px;
-    text-indent: 10px;
-    border: none;
-
-  }
 
   #login .login-control::placeholder {
     color: #000000;
@@ -541,14 +541,12 @@
   }
 
   #getValidSms {
-    /*width: 100px;*/
     width: 30%;
     height: 50px;
     background: #fff;
     border: 1px solid #fff;
     opacity: 0.6;
     position: relative;
-    /*bottom: 55px;*/
     float: right;
     text-align: center;
     color: #E75296;
@@ -557,11 +555,6 @@
     min-width: 30px;
   }
 
-  #login .login_valid {
-    /*width: 173px;*/
-    width: 65%;
-    float: left;
-  }
 
   #login .login_pwd {
     width: 173px;
